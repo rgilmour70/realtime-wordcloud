@@ -35,7 +35,7 @@ class WordForm extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <p className="question">What is your favorite fruit?</p>
         <form onSubmit={this.addWord}>
           <div className="form-group">
@@ -45,7 +45,7 @@ class WordForm extends Component {
             <button className="btn btn-primary">Enter</button>
           </div>
         </form>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -45,9 +45,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="columns">
-        <WordForm handleAddWord={this.handleAddWord} />
-        <Cloud words={this.state.words} />
+      <div className="row justify-content-around">
+        <div className="col-sm-6 col-md-10 main">
+          <WordForm handleAddWord={this.handleAddWord} />
+          <Cloud words={this.state.words} />
+        </div>
       </div>
     );
   }
