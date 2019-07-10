@@ -17,7 +17,7 @@ const Cloud = (props) => {
         fontSizes: [16, 36],
         fontFamily: 'sans-serif',
       }}
-      words={wordObjs} 
+      words={wordObjs}
     />
   );
 

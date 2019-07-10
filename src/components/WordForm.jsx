@@ -36,17 +36,13 @@ class WordForm extends Component {
   render() {
     return (
       <div>
-        <h1 className="title">What is your favorite fruit?</h1>
+        <p className="question">What is your favorite fruit?</p>
         <form onSubmit={this.addWord}>
-          <div className="field">
-            <div className="control">
-              <input type="text" className="input" name="word" />
-            </div>
+          <div className="form-group">
+            <input type="text" className="form-control" name="word" />
           </div>
-          <div className="field">
-            <div className="control">
-              <button className="button is-primary">Submit</button>
-            </div>
+          <div className="form-group">
+            <button className="btn btn-primary">Enter</button>
           </div>
         </form>
       </div>

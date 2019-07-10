@@ -45,16 +45,10 @@ class App extends Component {
 
   render() {
     return (
-      <section className="section">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-half is-offset-one-quarter">
-              <WordForm handleAddWord={this.handleAddWord} />
-              <Cloud words={this.state.words} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="columns">
+        <WordForm handleAddWord={this.handleAddWord} />
+        <Cloud words={this.state.words} />
+      </div>
     );
   }
 }
