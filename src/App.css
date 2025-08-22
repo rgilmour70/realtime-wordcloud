@@ -1,0 +1,16 @@
+body {
+  margin: 2em;
+  background-color: white;
+}
+.question {
+  font-size: 1.4em;
+}
+.main {
+  border: 3px solid steelblue;
+  border-radius: 14px;
+  padding: 1em;
+  max-height: 80vh;
+}
+.btn {
+  background-color: steelblue !important;
+}

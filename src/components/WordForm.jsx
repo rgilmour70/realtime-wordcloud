@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class WordForm extends Component {
   constructor(props) {
@@ -17,26 +17,28 @@ class WordForm extends Component {
     // Make sure word box is filled
     if (word) {
       const value = 1;
-      const wordObject = { 'text': word, 'value': value };
+      const wordObject = { text: word, value: value };
 
       // Publish word
       /*global Ably*/
-      const channel = Ably.channels.get('words');
-      channel.publish('add_comment', wordObject, err => {
+      const channel = Ably.channels.get("abby");
+      channel.publish("add_comment", wordObject, (err) => {
         if (err) {
-          console.log('Unable to publish message; err = ' + err.message);
+          console.log("Unable to publish message; err = " + err.message);
         }
       });
 
       // Clear input fields
-      e.target.elements.word.value = '';
+      e.target.elements.word.value = "";
     }
   }
 
   render() {
     return (
       <React.Fragment>
-        <p className="question">What keywords would you use to research this topic?</p>
+        <p className="question">
+          What keywords would you use to research this topic?
+        </p>
         <form onSubmit={this.addWord}>
           <div className="form-group">
             <input type="text" className="form-control" name="word" />
