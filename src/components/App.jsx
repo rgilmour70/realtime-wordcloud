@@ -14,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     /* global Ably */
-    const channel = Ably.channels.get("abby");
+    const channel = Ably.channels.get("kris");
 
     channel.attach();
     channel.once("attached", () => {

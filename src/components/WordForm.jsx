@@ -21,7 +21,7 @@ class WordForm extends Component {
 
       // Publish word
       /*global Ably*/
-      const channel = Ably.channels.get("abby");
+      const channel = Ably.channels.get("kris");
       channel.publish("add_comment", wordObject, (err) => {
         if (err) {
           console.log("Unable to publish message; err = " + err.message);

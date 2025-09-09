@@ -9,7 +9,11 @@ body {
   border: 3px solid steelblue;
   border-radius: 14px;
   padding: 1em;
-  max-height: 80vh;
+  max-height: 90vh;
+}
+.main {
+  display: flex;
+  flex-direction: column;
 }
 .btn {
   background-color: steelblue !important;
