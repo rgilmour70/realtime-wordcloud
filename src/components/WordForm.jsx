@@ -21,7 +21,7 @@ class WordForm extends Component {
 
       // Publish word
       /*global Ably*/
-      const channel = Ably.channels.get("kris");
+      const channel = Ably.channels.get(this.props.channel);
       channel.publish("add_comment", wordObject, (err) => {
         if (err) {
           console.log("Unable to publish message; err = " + err.message);
@@ -36,9 +36,6 @@ class WordForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <p className="question">
-          What keywords would you use to research this topic?
-        </p>
         <form onSubmit={this.addWord}>
           <div className="form-group">
             <input type="text" className="form-control" name="word" />

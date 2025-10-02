@@ -1,21 +1,29 @@
 import React, { Component } from "react";
 import WordForm from "./WordForm";
 import Cloud from "./Cloud";
+import Label from "./Label";
 import { tallyWords } from "../utils/TallyWords";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    const params = new URLSearchParams(window.location.search);
+    const urlPrompt = params.get("prompt");
+
+    const urlInst = params.get("inst");
+    const allowedInstructors = ("rg", "lk", "aj", "cm", "jr", "ks");
+    const validInstructor = allowedInstructors.includes() ? urlInst : "rg";
     this.handleAddWord = this.handleAddWord.bind(this);
     this.state = {
       words: [],
+      channel: validInstructor,
+      labelText: urlPrompt,
     };
   }
 
   componentDidMount() {
     /* global Ably */
-    const channel = Ably.channels.get("kris");
-
+    const channel = Ably.channels.get(this.channel);
     channel.attach();
     channel.once("attached", () => {
       channel.history({ untilAttach: true }, (err, page) => {
@@ -47,7 +55,8 @@ class App extends Component {
     return (
       <div className="row justify-content-around">
         <div className="col-sm-6 col-md-10 main">
-          <WordForm handleAddWord={this.handleAddWord} />
+          <Label labelText={this.state.labelText} />
+          <WordForm handleAddWord={this.handleAddWord} channel={this.channel} />
           <Cloud words={this.state.words} />
         </div>
       </div>
